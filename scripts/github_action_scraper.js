@@ -122,9 +122,10 @@ async function logScraperStatus(status, message, targetMonth, emailsSent = 0) {
         status,
         message,
         emails_sent: emailsSent,
-        created_at: now
+        run_at: now
       })
     });
+
 
     // Update cron_status in global_settings
     await fetch(`${SUPABASE_URL}/rest/v1/global_settings?id=eq.cron_status`, {
