@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f2f2f3;
+  --foreground: #1c1b1b;
+  --pale-slate: #f2f2f3;
+  --pure-white: #ffffff;
+  --obsidian: #18181b;
+  --electric-blue: #2170e4;
+  --success-mint: #10b981;
+  --warning-amber: #f59e0b;
+  --black-card: #0c0c0d;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-pale-slate: var(--pale-slate);
+  --color-pure-white: var(--pure-white);
+  --color-obsidian: var(--obsidian);
+  --color-electric-blue: var(--electric-blue);
+  --color-success-mint: var(--success-mint);
+  --color-warning-amber: var(--warning-amber);
+  --color-black-card: var(--black-card);
+  
+  --font-sans: var(--font-be-vietnam), Arial, Helvetica, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  
+  --radius-card: 24px;
+  --radius-bento: 32px;
+}
+
+body {
+  background-color: var(--pale-slate);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.neo-border {
+  border: 1px solid var(--obsidian);
+}
+
+.neo-border-thick {
+  border: 2px solid var(--obsidian);
+}
+
+.neo-hover {
+  transition: transform 0.2s, box-shadow 0.2s, border-width 0.2s;
+}
+
+.neo-hover:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 2px 2px 0px 0px var(--obsidian);
+  border-width: 1px;
+}
+
+.neo-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 8px 24px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.neo-pill-primary {
+  background-color: var(--obsidian);
+  color: var(--pure-white);
+}
+
+.neo-pill-primary:hover {
+  background-color: var(--pure-white);
+  color: var(--obsidian);
+  border: 1px solid var(--obsidian);
+}
+
+.neo-pill-secondary {
+  background-color: var(--pure-white);
+  color: var(--obsidian);
+  border: 1px solid var(--obsidian);
+}
+
+.neo-pill-outline {
+  background-color: transparent;
+  color: var(--obsidian);
+  border: 1px solid var(--obsidian);
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.asterisk-bg {
+  position: absolute;
+  font-size: 200px;
+  color: var(--obsidian);
+  opacity: 0.05;
+  top: -50px;
+  right: -50px;
+  pointer-events: none;
+  z-index: 0;
+  line-height: 1;
+  font-family: sans-serif;
+}
+
+/* Mobile Touch Feedback & Animations */
+.btn-touch-active {
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.1s ease;
+}
+.btn-touch-active:active {
+  transform: scale(0.96) translate(1px, 1px) !important;
+  box-shadow: 1px 1px 0px 0px var(--obsidian) !important;
+}
+
+/* Mobile Bottom Navigation Sheet */
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background-color: var(--pure-white);
+  border-top: 3px solid var(--obsidian);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 100;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-bottom-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--obsidian);
+  font-size: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex: 1;
+  height: 100%;
+}
+
+.mobile-bottom-nav-item.active {
+  color: var(--electric-blue);
+}
+
+.mobile-bottom-nav-item svg {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 2px;
+  transition: transform 0.2s ease;
+}
+
+.mobile-bottom-nav-item:active svg {
+  transform: scale(0.85);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  body {
+    padding-bottom: 74px; /* Space for bottom nav */
+  }
+}
+
+/* Bento card glow & smooth bounce */
+.neo-hover-card {
+  position: relative;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s, border-color 0.2s;
+}
+
+.neo-hover-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.neo-hover-card:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: 4px 4px 0px 0px var(--obsidian);
+  border-color: var(--electric-blue);
+}
+
+.neo-hover-card:hover::before {
+  background: linear-gradient(135deg, var(--electric-blue), var(--success-mint));
+}
+
+/* Shadow flat style */
+.shadow-flat {
+  box-shadow: 4px 4px 0px 0px var(--obsidian);
+}
+
+.shadow-flat-lg {
+  box-shadow: 6px 6px 0px 0px var(--obsidian);
+}
+
+

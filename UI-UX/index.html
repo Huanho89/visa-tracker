@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>VisaTracker - Kiểm tra &amp; Theo dõi Hồ sơ Định cư Mỹ</title>
+    <meta name="description" content="VisaTracker - Hệ thống tự động kiểm tra, theo dõi hồ sơ định cư Mỹ diện F1, F2A, F2B, F3, F4. Nhận thông báo tự động khi có lịch Visa Bulletin mới hàng tháng." />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://visatracker.vn/" />
+    <meta property="og:title" content="VisaTracker - Kiểm tra &amp; Theo dõi Hồ sơ Định cư Mỹ" />
+    <meta property="og:description" content="Hệ thống tự động kiểm tra, theo dõi hồ sơ định cư Mỹ diện bảo lãnh gia đình. Nhận email thông báo tự động khi lịch Visa Bulletin tiến triển." />
+    <meta property="og:image" content="./index.png" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#c8c6c7",
+                        "on-background": "#1c1b1b",
+                        "outline-variant": "#c7c6ca",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed": "#6ffbbe",
+                        "on-primary-fixed": "#1c1b1c",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#ddd9d9",
+                        "primary-fixed": "#e5e2e3",
+                        "surface-bright": "#fdf8f8",
+                        "background": "#fdf8f8",
+                        "on-tertiary-fixed": "#002113",
+                        "inverse-surface": "#313030",
+                        "primary": "#000000",
+                        "outline": "#77777b",
+                        "tertiary-container": "#002113",
+                        "surface-container-highest": "#e5e2e1",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "inverse-on-surface": "#f4f0ef",
+                        "on-primary-fixed-variant": "#474647",
+                        "on-tertiary-container": "#009668",
+                        "surface-variant": "#e5e2e1",
+                        "secondary-fixed-dim": "#adc6ff",
+                        "secondary-container": "#2170e4",
+                        "surface-container-low": "#f7f3f2",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "surface": "#fdf8f8",
+                        "on-secondary-container": "#fefcff",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#004395",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#000000",
+                        "on-primary-container": "#858384",
+                        "surface-tint": "#5f5e5f",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#ebe7e7",
+                        "secondary": "#0058be",
+                        "on-secondary-fixed": "#001a42",
+                        "primary-container": "#1c1b1c",
+                        "primary-fixed-dim": "#c8c6c7",
+                        "on-surface": "#1c1b1b",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-container": "#f1edec",
+                        "secondary-fixed": "#d8e2ff",
+                        "on-surface-variant": "#46464a",
+                        
+                        "pale-slate": "#f2f2f3",
+                        "pure-white": "#ffffff",
+                        "obsidian": "#18181b",
+                        "electric-blue": "#2170e4",
+                        "success-mint": "#10b981",
+                        "black-card": "#0c0c0d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px",
+                        "card": "24px"
+                    },
+                    "spacing": {
+                        "xl": "64px",
+                        "gutter": "20px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "xs": "8px",
+                        "unit": "4px",
+                        "container-padding": "32px",
+                        "sm": "16px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Be Vietnam Pro"],
+                        "display-lg-mobile": ["Be Vietnam Pro"],
+                        "body-lg": ["Be Vietnam Pro"],
+                        "data-lg": ["JetBrains Mono"],
+                        "body-sm": ["Be Vietnam Pro"],
+                        "data-sm": ["JetBrains Mono"],
+                        "label-caps": ["Be Vietnam Pro"],
+                        "headline-md": ["Be Vietnam Pro"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "800" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "data-lg": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "data-sm": ["14px", { "lineHeight": "1.4", "letterSpacing": "0.02em", "fontWeight": "400" }],
+                        "label-caps": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f2f2f3;
+        }
+        .neo-border {
+            border: 1px solid #18181b;
+        }
+        .neo-hover:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 2px 2px 0px 0px #18181b;
+            border-width: 2px;
+        }
+        .neo-pill {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 9999px;
+            padding: 8px 24px;
+            font-family: "Be Vietnam Pro", sans-serif;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+        .neo-pill-primary {
+            background-color: #18181b;
+            color: #ffffff;
+        }
+        .neo-pill-primary:hover {
+            background-color: #ffffff;
+            color: #18181b;
+            border: 1px solid #18181b;
+        }
+        .neo-pill-secondary {
+            background-color: #ffffff;
+            color: #18181b;
+            border: 1px solid #18181b;
+        }
+        .neo-pill-outline {
+            background-color: transparent;
+            color: #18181b;
+            border: 1px solid #18181b;
+            font-size: 12px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .asterisk-bg {
+            position: absolute;
+            font-size: 200px;
+            color: #18181b;
+            opacity: 0.05;
+            top: -50px;
+            right: -50px;
+            pointer-events: none;
+            z-index: 0;
+            line-height: 1;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body class="text-on-background bg-pale-slate font-body-lg min-h-screen flex flex-col relative overflow-x-hidden">
+    <!-- Asterisk Decoration -->
+    <div class="asterisk-bg select-none">*</div>
+    
+    <!-- Header (TopNavBar) -->
+    <header class="bg-surface-container-lowest dark:bg-surface-container-lowest border-b border-primary w-full sticky top-0 z-50 flat no shadows">
+        <div class="flex justify-between items-center px-4 md:px-8 w-full max-w-[1200px] mx-auto h-20">
+            <!-- Brand Logo -->
+            <a href="./index.html" class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-3xl" data-weight="fill">travel_explore</span>
+                <span class="font-display-lg text-display-lg font-extrabold text-primary tracking-tighter hidden md:block" style="font-size: 28px;">VisaTracker</span>
+                <span class="font-display-lg-mobile text-display-lg-mobile font-extrabold text-primary tracking-tighter md:hidden" style="font-size: 24px;">VisaTracker</span>
+                <span class="inline-flex items-center justify-center w-8 h-5 bg-blue-100 rounded border border-primary overflow-hidden ml-1" title="US Flag Badge">
+                    <div class="flex h-full w-full">
+                        <div class="w-1/3 bg-blue-800 h-full"></div>
+                        <div class="w-2/3 flex flex-col">
+                            <div class="h-1/5 bg-red-600"></div>
+                            <div class="h-1/5 bg-white"></div>
+                            <div class="h-1/5 bg-red-600"></div>
+                            <div class="h-1/5 bg-white"></div>
+                            <div class="h-1/5 bg-red-600"></div>
+                        </div>
+                    </div>
+                </span>
+            </a>
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center h-full gap-8">
+                <a class="h-full flex items-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="./articles.html">
+                    Kho hướng dẫn
+                </a>
+                <a class="h-full flex items-center text-on-surface-variant dark:text-on-surface-variant hover:text-secondary transition-colors duration-200" href="#visa-bulletin">
+                    Visa Bulletin
+                </a>
+            </nav>
+            <!-- Trailing Action -->
+            <div class="flex items-center gap-4">
+                <a class="neo-pill neo-pill-primary text-sm px-6 py-2" href="./dashboard.html">Đăng nhập →</a>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow w-full max-w-[1200px] mx-auto px-gutter md:px-lg py-lg md:py-xl flex flex-col gap-xl relative z-10">
+        <!-- Hero Section -->
+        <section class="flex flex-col items-center text-center relative py-xl">
+            <div class="asterisk-bg" style="top: 20%; left: 10%; right: auto; font-size: 150px;">*</div>
+            <h1 class="font-display-lg text-display-lg-mobile md:text-display-lg max-w-4xl mb-md leading-tight text-primary">
+                Kiểm tra &amp; <span class="neo-pill neo-pill-outline mx-2 inline-flex translate-y-[-4px]">Theo dõi</span> Hồ sơ Định cư Mỹ <span class="neo-pill neo-pill-outline mx-2 inline-flex translate-y-[-4px]">tự động</span> của bạn
+            </h1>
+            <p class="font-body-lg text-body-lg max-w-2xl mb-lg text-on-surface-variant">
+                Hỗ trợ tracking trực quan, tự động quét Visa Bulletin hàng tháng và gửi thông báo trực tiếp qua Email.
+            </p>
+            <button class="neo-pill neo-pill-primary text-body-lg px-8 py-4">
+                Bắt đầu tra cứu →
+            </button>
+        </section>
+
+        <!-- Illustration Row (Cards) -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-md">
+            <!-- Card 1 -->
+            <div class="bg-black-card text-pure-white rounded-[1.5rem] p-lg flex flex-col gap-md relative overflow-hidden neo-hover transition-all group">
+                <div class="w-full h-48 bg-primary rounded-xl mb-4 overflow-hidden relative">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="Giai đoạn Sở Di Trú Mỹ (USCIS Approved)" src="./images/visa_uscis_approved.png"/>
+                </div>
+                <h3 class="font-headline-md text-headline-md">Sở Di Trú Chấp Thuận<br/><span class="text-on-surface-variant text-body-lg font-normal">(USCIS Approved)</span></h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-auto">Hồ sơ được thông qua tại Mỹ</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-black-card text-pure-white rounded-[1.5rem] p-lg flex flex-col gap-md relative overflow-hidden neo-hover transition-all group">
+                <div class="w-full h-48 bg-primary rounded-xl mb-4 overflow-hidden relative">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="Giai đoạn NVC Tiếp Nhận (NVC Stage)" src="./images/visa_nvc_stage.png"/>
+                </div>
+                <h3 class="font-headline-md text-headline-md">NVC Tiếp Nhận<br/><span class="text-on-surface-variant text-body-lg font-normal">(NVC Stage)</span></h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-auto">Cấp số Case Number &amp; Invoice ID</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-black-card text-pure-white rounded-[1.5rem] p-lg flex flex-col gap-md relative overflow-hidden neo-hover transition-all group">
+                <div class="w-full h-48 bg-primary rounded-xl mb-4 overflow-hidden relative">
+                    <img class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500" data-alt="Giai đoạn Phỏng vấn &amp; Cấp Visa (Visa Issued)" src="./images/visa_issued_stage.png"/>
+                </div>
+                <h3 class="font-headline-md text-headline-md">Phỏng Vấn &amp; Cấp Visa<br/><span class="text-on-surface-variant text-body-lg font-normal">(Visa Issued)</span></h3>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-auto">Nhận visa định cư Mỹ</p>
+            </div>
+        </section>
+
+        <!-- Visa Bulletin Table -->
+        <section id="visa-bulletin" class="bg-pure-white rounded-[2rem] neo-border p-lg relative neo-hover transition-all">
+            <div class="absolute top-4 right-6 text-4xl text-primary opacity-20 font-sans leading-none">*</div>
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-md gap-2">
+                <div>
+                    <h2 class="font-headline-md text-headline-md text-primary">Lịch Visa Bulletin &amp; Lịch mở hồ sơ NVC</h2>
+                    <p class="text-body-sm text-on-surface-variant mt-1">Bản cập nhật ngày 15/06/2026 (Áp dụng cho tháng 07/2026)</p>
+                </div>
+                <span class="neo-pill neo-pill-outline text-xs px-3 py-1 font-bold">Tháng 07/2026</span>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="border-b neo-border">
+                            <th class="py-4 px-2 font-label-caps text-label-caps text-on-surface-variant uppercase">Diện bảo lãnh (Visa Category)</th>
+                            <th class="py-4 px-2 font-label-caps text-label-caps text-on-surface-variant uppercase">Ngày Hành Động Cuối (Final Action Date - Bảng A)</th>
+                            <th class="py-4 px-2 font-label-caps text-label-caps text-on-surface-variant uppercase">Ngày Nộp Hồ Sơ (Dates for Filing - Bảng B)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-data-lg text-data-lg">
+                        <tr class="border-b neo-border group hover:bg-pale-slate transition-colors">
+                            <td class="py-4 px-2 font-bold text-primary">
+                                F1 <span class="font-normal text-xs text-on-surface-variant block md:inline md:ml-2">(Con độc thân của công dân Mỹ)</span>
+                            </td>
+                            <td class="py-4 px-2">22/10/2015</td>
+                            <td class="py-4 px-2">01/09/2017</td>
+                        </tr>
+                        <tr class="border-b neo-border group hover:bg-pale-slate transition-colors">
+                            <td class="py-4 px-2 font-bold text-primary">
+                                F2A <span class="font-normal text-xs text-on-surface-variant block md:inline md:ml-2">(Vợ/chồng &amp; Con nhỏ của Thường trú nhân)</span>
+                            </td>
+                            <td class="py-4 px-2">15/06/2020</td>
+                            <td class="py-4 px-2">01/09/2023</td>
+                        </tr>
+                        <tr class="border-b neo-border bg-[#10b981] bg-opacity-10 group hover:bg-opacity-20 transition-colors">
+                            <td class="py-4 px-2 font-bold text-[#005236]">
+                                F2B <span class="font-normal text-xs text-on-surface-variant block md:inline md:ml-2">(Con độc thân trên 21 tuổi của Thường trú nhân)</span>
+                            </td>
+                            <td class="py-4 px-2 text-[#005236]">22/09/2017</td>
+                            <td class="py-4 px-2 text-[#005236]">08/06/2018</td>
+                        </tr>
+                        <tr class="border-b neo-border group hover:bg-pale-slate transition-colors">
+                            <td class="py-4 px-2 font-bold text-primary">
+                                F3 <span class="font-normal text-xs text-on-surface-variant block md:inline md:ml-2">(Con đã kết hôn của công dân Mỹ)</span>
+                            </td>
+                            <td class="py-4 px-2">08/04/2010</td>
+                            <td class="py-4 px-2">01/03/2012</td>
+                        </tr>
+                        <tr class="group hover:bg-pale-slate transition-colors">
+                            <td class="py-4 px-2 font-bold text-primary">
+                                F4 <span class="font-normal text-xs text-on-surface-variant block md:inline md:ml-2">(Anh chị em của công dân Mỹ)</span>
+                            </td>
+                            <td class="py-4 px-2">08/06/2007</td>
+                            <td class="py-4 px-2">01/03/2008</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Functionality Box (Form & Results) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-md">
+            <!-- Left: Form -->
+            <div class="bg-pure-white rounded-[2rem] neo-border p-lg flex flex-col gap-md neo-hover transition-all">
+                <h2 class="font-headline-md text-headline-md text-primary">Kiểm tra trạng thái hồ sơ thử nghiệm (Sandbox)</h2>
+                <form class="flex flex-col gap-sm">
+                    <div class="flex flex-col gap-xs">
+                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Diện bảo lãnh (Visa Category)</label>
+                        <select class="bg-pale-slate rounded-card neo-border px-4 py-3 font-body-lg text-primary focus:border-electric-blue focus:border-2 outline-none appearance-none w-full">
+                            <option>F2B - Con độc thân trên 21 tuổi của Thường trú nhân</option>
+                            <option>F1 - Con độc thân của công dân Mỹ</option>
+                            <option>F2A - Vợ/chồng &amp; Con nhỏ của Thường trú nhân</option>
+                            <option>F3 - Con đã kết hôn của công dân Mỹ</option>
+                            <option>F4 - Anh chị em của công dân Mỹ</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-xs">
+                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Ngày ưu tiên (Priority Date)</label>
+                        <input class="bg-pale-slate rounded-card neo-border px-4 py-3 font-data-lg text-primary focus:border-electric-blue focus:border-2 outline-none w-full" type="text" value="20-11-2017"/>
+                    </div>
+                    <div class="flex flex-col gap-xs">
+                        <label class="font-label-caps text-label-caps text-on-surface-variant uppercase">Khu vực quốc gia (Chargeability Area)</label>
+                        <select class="bg-pale-slate rounded-card neo-border px-4 py-3 font-body-lg text-primary focus:border-electric-blue focus:border-2 outline-none appearance-none w-full">
+                            <option>Vietnam (Tất cả khu vực ngoại trừ các quốc gia đặc thù)</option>
+                        </select>
+                    </div>
+                    <button class="neo-pill neo-pill-primary w-full py-4 mt-sm text-body-lg" type="button">
+                        Kiểm tra hồ sơ →
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Right: Results / Benefits -->
+            <div class="bg-pure-white rounded-[2rem] neo-border p-lg flex flex-col gap-md neo-hover transition-all relative overflow-hidden">
+                <div class="absolute -right-10 -bottom-10 opacity-5">
+                    <span class="material-symbols-outlined" style="font-size: 200px;">verified_user</span>
+                </div>
+                <h2 class="font-headline-md text-headline-md text-primary">Kết quả theo dõi (Tiến trình)</h2>
+                <div class="flex-grow flex flex-col gap-4 relative z-10">
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded-full bg-success-mint flex items-center justify-center text-pure-white">
+                            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                        </div>
+                        <div class="font-body-lg text-primary">Sở Di Trú Chấp Thuận (USCIS Approved)</div>
+                    </div>
+                    <div class="w-0.5 h-6 bg-success-mint ml-4"></div>
+                    <div class="flex items-center gap-4">
+                        <div class="w-8 h-8 rounded-full bg-success-mint flex items-center justify-center text-pure-white">
+                            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">check</span>
+                        </div>
+                        <div class="font-body-lg text-primary">NVC Tiếp Nhận (NVC Stage)</div>
+                    </div>
+                    <div class="w-0.5 h-6 bg-success-mint ml-4"></div>
+                    <div class="flex items-center gap-4 bg-[#10b981] bg-opacity-10 p-3 rounded-card neo-border border-[#10b981]">
+                        <div class="w-8 h-8 rounded-full bg-success-mint flex items-center justify-center text-pure-white animate-pulse">
+                            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">notifications_active</span>
+                        </div>
+                        <div class="font-body-lg font-bold text-[#005236]">Ngày nộp đơn đã đến hạn (Dates for Filing Current)</div>
+                    </div>
+                    <div class="w-0.5 h-6 bg-outline-variant ml-4 border-l border-dashed border-outline-variant bg-transparent"></div>
+                    <div class="flex items-center gap-4 opacity-50">
+                        <div class="w-8 h-8 rounded-full border-2 border-outline-variant flex items-center justify-center"></div>
+                        <div class="font-body-lg text-on-surface-variant">Phỏng Vấn &amp; Cấp Visa (Visa Issued)</div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-lg border-t neo-border flex flex-col items-center gap-4 relative z-10">
+                    <p class="font-body-sm text-center text-on-surface-variant">Đăng nhập lưu hồ sơ và nhận thư báo tự động khi lịch Bulletin hàng tháng thay đổi.</p>
+                    <button class="neo-pill neo-pill-secondary w-full py-3 flex items-center justify-center gap-2">
+                        <span class="font-bold border px-2 py-0.5 rounded mr-1">G</span> Đăng nhập bằng Google →
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container dark:bg-surface-container full-width border-t border-primary dark:border-outline-variant flat no shadows mt-xl relative z-10">
+        <div class="flex flex-col md:flex-row justify-between items-center w-full px-gutter py-lg max-w-[1200px] mx-auto gap-md">
+            <div class="font-headline-md text-headline-md text-primary font-bold">
+                VisaTracker
+            </div>
+            <div class="font-body-sm text-body-sm text-on-surface dark:text-on-surface text-center md:text-left">
+                © 2026 VisaTracker. Bảo lưu mọi quyền.
+            </div>
+            <div class="flex gap-md font-body-sm text-body-sm text-on-surface-variant">
+                <a class="hover:text-primary transition-colors" href="#">Điều khoản sử dụng</a>
+                <a class="hover:text-primary transition-colors" href="#">Chính sách bảo mật</a>
+                <a class="hover:text-primary transition-colors" href="#">Tuyên bố miễn trừ</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
